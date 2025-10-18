@@ -1,4 +1,7 @@
-package org.example.model;
+package org.example.state;
+
+import org.example.model.ParkingFloor;
+import org.example.model.Vehicle;
 
 import java.util.List;
 

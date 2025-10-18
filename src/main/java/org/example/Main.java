@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.model.ParkingFloor;
-import org.example.model.ParkingState;
+import org.example.state.ParkingState;
 import org.example.model.VEHICLE_TYPE;
 import org.example.model.Vehicle;
 import org.example.service.ParkVehicleService;
@@ -29,8 +29,8 @@ public class Main {
         ParkingState.initialize(f1, f2, f3, f4, f5, pv, cv, r);
 
         ParkVehicleService parkVehicleService = new ParkVehicleService();
-        parkVehicleService.parkVehicle("1", VEHICLE_TYPE.CAR, "NBR 617 GP");
-        parkVehicleService.parkVehicle("2", VEHICLE_TYPE.CAR, "NBR 617 GP");
+        parkVehicleService.parkVehicle("1", VEHICLE_TYPE.CAR, "NBR 123 GP");
+        parkVehicleService.parkVehicle("2", VEHICLE_TYPE.CAR, "NBR 123 GP");
 
         UnparkVehicleService unparkVehicleService = new UnparkVehicleService();
         ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
@@ -38,7 +38,7 @@ public class Main {
         // Schedule task to run 5 minutes later
         scheduler.schedule(() -> {
             System.out.println(" ");
-            unparkVehicleService.unparkVehicle("NBR 617 GP");
+            unparkVehicleService.unparkVehicle("NBR 123 GP");
             System.out.println(ParkingState.getTotalRevenue());
         }, 5, TimeUnit.MINUTES);
     }
